@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="49eda957db7a462394d2f07aa21d3796" Name="Diagram1">
+        <EntityTypeShape EntityType="TaxApplicationModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Автомобили" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Должность" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Заказы" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Клиенты" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Модель" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Сотрудники" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Тарифы" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="TaxApplicationModel.FK_Автомобили_Модель" ManuallyRouted="false" />
+        <AssociationConnector Association="TaxApplicationModel.FK_Автомобили_Сотрудники" ManuallyRouted="false" />
+        <AssociationConnector Association="TaxApplicationModel.FK_Заказы_Автомобили" ManuallyRouted="false" />
+        <AssociationConnector Association="TaxApplicationModel.FK_Сотрудники_Должность" ManuallyRouted="false" />
+        <AssociationConnector Association="TaxApplicationModel.FK_Заказы_Клиенты" ManuallyRouted="false" />
+        <AssociationConnector Association="TaxApplicationModel.FK_Заказы_Тарифы" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

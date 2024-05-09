@@ -1,0 +1,17 @@
+﻿<Application x:Class="KPTaxiApplication.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:KPTaxiApplication"
+             StartupUri="Views/MainWindow.xaml">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/DesignButton.xaml"/>
+                <ResourceDictionary Source="Style/DesignTextBox.xaml"/>
+                <ResourceDictionary Source="Style/DesignGrid.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+    
+</Application>
