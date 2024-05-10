@@ -54,7 +54,8 @@ namespace KPTaxiApplication.Views
 
         private void Glav_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new PersonalAccount());
+            CardPageSotrudnik card = new CardPageSotrudnik();
+            card.Show();
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
@@ -104,7 +105,17 @@ namespace KPTaxiApplication.Views
 
         private void Car_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AvtoPage());
+            if (CurrentUser.Status == 2)
+            {
+
+                MessageBox.Show("Автомобили меню не доступно для диспетчера. \n Обратитесь к Администратору.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+
+            }
+            else
+            {
+                MainFrame.Navigate(new AvtoPage());
+            }
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

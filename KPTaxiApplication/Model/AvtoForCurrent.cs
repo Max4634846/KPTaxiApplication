@@ -8,5 +8,8 @@ namespace KPTaxiApplication.Model
 {
     public class AvtoForCurrent
     {
+        public int id_Avto { get; set; }
+        public int id_Model { get; set; }
+        public int id_Sot { get; set; }
     }
 }

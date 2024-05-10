@@ -177,6 +177,9 @@
     <Compile Include="Views\AvtoPage.xaml.cs">
       <DependentUpon>AvtoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CardPageSotrudnik.xaml.cs">
+      <DependentUpon>CardPageSotrudnik.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DolPage.xaml.cs">
       <DependentUpon>DolPage.xaml</DependentUpon>
     </Compile>
@@ -188,9 +191,6 @@
     </Compile>
     <Compile Include="Views\OrdersPage.xaml.cs">
       <DependentUpon>OrdersPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PersonalAccount.xaml.cs">
-      <DependentUpon>PersonalAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SotPage.xaml.cs">
       <DependentUpon>SotPage.xaml</DependentUpon>
@@ -248,6 +248,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AvtoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardPageSotrudnik.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -310,10 +314,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Style\DesignTextBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PersonalAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

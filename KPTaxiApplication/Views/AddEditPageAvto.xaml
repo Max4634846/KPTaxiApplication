@@ -21,6 +21,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
 
 
 
@@ -35,8 +36,14 @@
             <TextBlock Grid.Row="1"  Text="Номер сотрудника" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBox x:Name="numberSot"  Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Width="150"/>
 
-            <Button Grid.Row="12" Grid.Column="1" Content="Back" FontSize="10" Width="100" Height="20" Style="{StaticResource addButton}" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Close_Click" Margin="0,15,0,0"/>
-            <Button Grid.Row="12" Grid.Column="0" Content="Add" FontSize="10" Width="100" Height="20" Style="{StaticResource addButton}" HorizontalAlignment="Center" VerticalAlignment="Top"  Click="Add_Click" Margin="0,15,0,0" />
+            <WrapPanel  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0">
+                <TextBlock  x:Name="idAvtoText" Text="Номер автомобиля:  " FontWeight="Bold"/>
+                <TextBlock  x:Name="idAvto" FontWeight="Bold"/>
+            </WrapPanel>
+
+            <Button x:Name="Back" Grid.Row="12" Grid.Column="1" Content="Back" FontSize="10" Width="100" Height="20" Style="{StaticResource addButton}" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Close_Click" Margin="0,15,0,0"/>
+            <Button x:Name="Edit" Grid.Row="12" Grid.Column="0" Content="Edit" FontSize="10" Width="100" Height="20" Style="{StaticResource addButton}" HorizontalAlignment="Center" VerticalAlignment="Top"  Click="Edit_Click" Margin="0,15,0,0" />
+            <Button x:Name="Add"  Grid.Row="12" Grid.Column="0" Content="Add" FontSize="10" Width="100" Height="20" Style="{StaticResource addButton}" HorizontalAlignment="Center" VerticalAlignment="Top"  Click="Add_Click" Margin="0,15,0,0" />
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Border>

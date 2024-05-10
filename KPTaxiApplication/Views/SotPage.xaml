@@ -88,7 +88,7 @@
                 <DataGridTextColumn Header="Почта" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Email}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Паспорт" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Pasport}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Адрес" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Address}" Width="*"></DataGridTextColumn>
-                <DataGridTemplateColumn x:Name="HeaderSix" Width="*" HeaderStyle="{StaticResource dataGridHeader}">
+                <DataGridTemplateColumn x:Name="HeaderSix" Width="100" HeaderStyle="{StaticResource dataGridHeader}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Name="BtnEdit" Background="#816aba" Click="Delete_Click">

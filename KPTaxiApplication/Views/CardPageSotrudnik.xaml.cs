@@ -11,17 +11,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace KPTaxiApplication.Views
 {
     /// <summary>
-    /// Interaction logic for PersonalAccount.xaml
+    /// Interaction logic for CardPageSotrudnik.xaml
     /// </summary>
-    public partial class PersonalAccount : Page
+    public partial class CardPageSotrudnik : Window
     {
-        public PersonalAccount()
+        public CardPageSotrudnik()
         {
             InitializeComponent();
             txtStatus.Text = $"Стаутс: {CurrentUser.Status}";
@@ -29,10 +28,15 @@ namespace KPTaxiApplication.Views
             txtNumberPhone.Text = $"Номер телефона: {CurrentUser.PhoneNumber}";
             txtMail.Text = $"Email: {CurrentUser.Email}";
             txtMail.Text = $"Паспортные данные: {CurrentUser.Pasport}";
-            txtOpicanie.Text = $"Описание области: {CurrentUser.Opicanie}";
+            txtOpicanie.Text = $"Описание области: \n{CurrentUser.Opicanie}";
+        }
 
-
-
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
         }
     }
 }

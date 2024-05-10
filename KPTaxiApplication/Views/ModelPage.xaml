@@ -37,7 +37,7 @@
             <Icon:PackIconMaterial Kind="Bell" />
         </Button>
 
-        <Button Style="{StaticResource addButton}" Click="Add_Click">
+        <Button Style="{StaticResource addButton}" Click="Add_Click" x:Name="Add">
             <StackPanel Orientation="Horizontal">
                 <Icon:PackIconMaterial  Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                 <TextBlock Text="Добавить" />
@@ -69,13 +69,23 @@
         </Grid>
 
 
-        <DataGrid Grid.Row="5"  x:Name="DGSot" HeadersVisibility="Column" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"  IsReadOnly="True"  Style="{StaticResource dataGrid}">
+        <DataGrid Grid.Row="5"  x:Name="DGSot" MouseDoubleClick="DGSot_MouseDoubleClick" HeadersVisibility="Column" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"  IsReadOnly="True"  Style="{StaticResource dataGrid}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Модель" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Модель1}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Марка" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Марка}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Цвет" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Цвет}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Год" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Год}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Тип кузова" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Тип_кузова}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="One"  Header="Модель" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Model}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="Two"  Header="Марка" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Marka}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="Three"  Header="Цвет" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Svet}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="Four"  Header="Год" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding God}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="Five"  Header="Тип кузова" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Tip_Kus}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn x:Name="HeaderSix" Width="100" HeaderStyle="{StaticResource dataGridHeader}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnEdit" Background="#816aba" Click="Delete_Click">
+                                <Icon:PackIconMaterial  Kind="Delete" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
+
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />

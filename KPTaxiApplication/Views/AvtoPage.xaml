@@ -68,11 +68,20 @@
             <TextBox x:Name="txtFilter" Style="{StaticResource textboxFilter}" TextChanged="TextBox_Changed"/>
         </Grid>
 
-        <DataGrid Grid.Row="5"  x:Name="DGSot" HeadersVisibility="Column" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"  IsReadOnly="True"  Style="{StaticResource dataGrid}">
+        <DataGrid Grid.Row="5"  x:Name="DGSot" MouseDoubleClick="DGSot_MouseDoubleClick" HeadersVisibility="Column" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"  IsReadOnly="True"  Style="{StaticResource dataGrid}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер модели" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding id_Модель}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Номер сотрудника" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding id_Сотрудники}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер модели" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding id_Model}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер сотрудника" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding id_Sot}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn x:Name="HeaderSix" Width="100" HeaderStyle="{StaticResource dataGridHeader}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnEdit" Background="#816aba" Click="Delete_Click">
+                                <Icon:PackIconMaterial  Kind="Delete" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
 
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />

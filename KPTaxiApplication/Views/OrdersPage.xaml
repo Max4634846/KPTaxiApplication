@@ -100,7 +100,7 @@
                 <DataGridTextColumn x:Name="fourteen" Header="Выбор оплаты" HeaderStyle="{StaticResource dataGridHeaderDis}" Binding="{Binding ViborOplate}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn x:Name="fifteen" Header="Ожидание" HeaderStyle="{StaticResource dataGridHeaderDis}" Binding="{Binding Expectation}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn x:Name="sixteen" Header="Оценка за обслуживание" HeaderStyle="{StaticResource dataGridHeaderDis}" Binding="{Binding Estimation}" Width="*"></DataGridTextColumn>
-                <DataGridTemplateColumn x:Name="Header" Width="*" HeaderStyle="{StaticResource dataGridHeaderDis}">
+                <DataGridTemplateColumn x:Name="Header" Width="100" HeaderStyle="{StaticResource dataGridHeaderDis}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Name="BtnEdit" Background="#816aba" Click="Delete_Click">
