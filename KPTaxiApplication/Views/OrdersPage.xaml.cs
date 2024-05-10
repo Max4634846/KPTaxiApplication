@@ -123,20 +123,20 @@ namespace KPTaxiApplication.Views
             {
                 view.Filter = (obj) =>
                 {
-                    Заказы order = obj as Заказы;
+                    OrdersForCurrentUser order = obj as OrdersForCurrentUser;
                     if (order != null)
                     {
-                        return order.id_Автомобили.ToString().ToLower().Contains(filterText) ||
-                               order.id_Клиенты.ToString().ToLower().Contains(filterText) ||
-                               order.id_Тарифы.ToString().ToLower().Contains(filterText) ||
-                               order.Откуда.ToLower().Contains(filterText) ||
-                               order.Место_отправления.ToLower().Contains(filterText) ||
-                               order.Время_начала_заказа.ToLower().Contains(filterText) ||
-                               order.Время_окончания_заказа.ToLower().Contains(filterText) ||
-                               order.Путь_в_км.ToString().ToLower().Contains(filterText) ||
-                               order.Статус_заказа.ToLower().Contains(filterText) ||
-                               order.Стоимость.ToString().ToLower().Contains(filterText) ||
-                               order.Выбор_оплаты.ToLower().Contains(filterText);
+                        return order.id_Avto.ToString().ToLower().Contains(filterText) ||
+                               order.id_Client.ToString().ToLower().Contains(filterText) ||
+                               order.id_Taff.ToString().ToLower().Contains(filterText) ||
+                               order.Otkuda.ToLower().Contains(filterText) ||
+                               order.Kuda.ToLower().Contains(filterText) ||
+                               order.StartTime.ToLower().Contains(filterText) ||
+                               order.FinishTimne.ToLower().Contains(filterText) ||
+                               order.PutKm.ToString().ToLower().Contains(filterText) ||
+                               order.StartTime.ToLower().Contains(filterText) ||
+                               order.Price.ToString().ToLower().Contains(filterText) ||
+                               order.ViborOplate.ToLower().Contains(filterText);
                     }
                     return false;
                 };
@@ -186,14 +186,51 @@ namespace KPTaxiApplication.Views
                 fourteen.HeaderStyle = (Style)Application.Current.Resources["dataGridHeader"];
                 fifteen.HeaderStyle = (Style)Application.Current.Resources["dataGridHeader"];
                 sixteen.HeaderStyle = (Style)Application.Current.Resources["dataGridHeader"];
+                Header.HeaderStyle = (Style)Application.Current.Resources["dataGridHeader"];
+                
 
 
+            }
+            else
+            {
+                Header.Visibility = Visibility.Collapsed;
             }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedClients = DGOrder.SelectedItems.Cast<OrdersForCurrentUser>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {selectedClients.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    using (var context = new TaxApplicationEntities())
+                    {
+                        foreach (var client in selectedClients)
+                        {
+                            // Находим объект клиента по его ID и добавляем его в коллекцию для удаления
+                            var clientToRemove = context.Заказы.Find(client.id_Order);
+                            if (clientToRemove != null)
+                                context.Заказы.Remove(clientToRemove);
+                        }
+
+                        // Сохраняем изменения в базе данных
+                        context.SaveChanges();
+                    }
+                    MessageBox.Show("Данные успешно удалены");
+                    UpdateDataGrid();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
     }
 }

@@ -67,7 +67,7 @@ namespace KPTaxiApplication.Views
             if (CurrentUser.Status == 2)
             {
 
-                MessageBox.Show("Сотрудники меню не доступно для диспетчера.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Сотрудники меню не доступно для диспетчера. \n Обратитесь к Администратору.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
                 
             }
@@ -79,22 +79,32 @@ namespace KPTaxiApplication.Views
 
         private void Tarig_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new TaffPage());
         }
 
         private void Post_Click(object sender, RoutedEventArgs e)
         {
+            if (CurrentUser.Status == 2)
+            {
 
+                MessageBox.Show("Должности меню не доступно для диспетчера. \n Обратитесь к Администратору.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+
+            }
+            else
+            {
+                MainFrame.Navigate(new DolPage());
+            }
         }
 
         private void Model_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new ModelPage());
         }
 
         private void Car_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new AvtoPage());
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

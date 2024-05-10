@@ -129,8 +129,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelTaxi.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\AvtoForCurrent.cs" />
     <Compile Include="Model\AvtoItem.cs" />
+    <Compile Include="Model\DolForCurrent.cs" />
+    <Compile Include="Model\ModelForCurrent.cs" />
     <Compile Include="Model\OrdersForCurrentUser.cs" />
+    <Compile Include="Model\SotForrCurrentUser.cs" />
+    <Compile Include="Model\TaffForCurrent.cs" />
     <Compile Include="ReportOrdersPerDay_Result.cs">
       <DependentUpon>ModelTaxi.tt</DependentUpon>
     </Compile>
@@ -146,16 +151,40 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>ModelTaxi.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddEditPageAvto.xaml.cs">
+      <DependentUpon>AddEditPageAvto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddEditPageClient.xaml.cs">
       <DependentUpon>AddEditPageClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ClientForCurrentUser.cs" />
     <Compile Include="Model\CurrentUser.cs" />
+    <Compile Include="Views\AddEditPageDol.xaml.cs">
+      <DependentUpon>AddEditPageDol.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditPageModel.xaml.cs">
+      <DependentUpon>AddEditPageModel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddEditPageOrders.xaml.cs">
       <DependentUpon>AddEditPageOrders.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddEditPageSot.xaml.cs">
+      <DependentUpon>AddEditPageSot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditPageTaff.xaml.cs">
+      <DependentUpon>AddEditPageTaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AvtoPage.xaml.cs">
+      <DependentUpon>AvtoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DolPage.xaml.cs">
+      <DependentUpon>DolPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelPage.xaml.cs">
+      <DependentUpon>ModelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OrdersPage.xaml.cs">
       <DependentUpon>OrdersPage.xaml</DependentUpon>
@@ -165,6 +194,9 @@
     </Compile>
     <Compile Include="Views\SotPage.xaml.cs">
       <DependentUpon>SotPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaffPage.xaml.cs">
+      <DependentUpon>TaffPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Автомобили.cs">
       <DependentUpon>ModelTaxi.tt</DependentUpon>
@@ -187,11 +219,43 @@
     <Compile Include="Тарифы.cs">
       <DependentUpon>ModelTaxi.tt</DependentUpon>
     </Compile>
+    <Page Include="Views\AddEditPageAvto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddEditPageClient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddEditPageDol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditPageModel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddEditPageOrders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditPageSot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditPageTaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AvtoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DolPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ModelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,6 +264,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SotPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TaffPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
