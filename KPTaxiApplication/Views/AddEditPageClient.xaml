@@ -32,7 +32,7 @@
 
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Номер задания: " HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="idText" Text="Номер клиента: " HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <TextBlock Grid.Column="1" x:Name="id" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                 <TextBlock Grid.Row="1" Text="Имя" HorizontalAlignment="Center" VerticalAlignment="Center"/>

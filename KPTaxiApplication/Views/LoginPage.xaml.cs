@@ -63,6 +63,7 @@ namespace KPTaxiApplication.Views
                     .FirstOrDefault(u => u.Логин == txtLogin.Text
                     && u.Пароль == LogInPassword);
 
+
                 if (user1 != null)
                 {
                     if(user1.id_Должность == 3)
@@ -73,6 +74,11 @@ namespace KPTaxiApplication.Views
                         CurrentUser.Status = (int)user1.id_Должность;
                         CurrentUser.FirstName = user1.Имя;
                         CurrentUser.SurName = user1.Фамилия;
+                        CurrentUser.PhoneNumber = user1.Номер_телефона;
+                        CurrentUser.Patronies = user1.Отчество;
+                        CurrentUser.Email = user1.Почта;
+                        CurrentUser.Pasport = user1.Паспортные_данные;
+                        CurrentUser.Opicanie = user1.Должность.Описание;
 
                         UsersPanelWindow admin = new UsersPanelWindow();
                         admin.Show();
@@ -88,6 +94,11 @@ namespace KPTaxiApplication.Views
                         CurrentUser.Status = (int)user1.id_Должность;
                         CurrentUser.FirstName = user1.Имя;
                         CurrentUser.SurName = user1.Фамилия;
+                        CurrentUser.PhoneNumber = user1.Номер_телефона;
+                        CurrentUser.Patronies = user1.Отчество;
+                        CurrentUser.Email = user1.Почта;
+                        CurrentUser.Pasport = user1.Паспортные_данные;
+                        CurrentUser.Opicanie = user1.Должность.Описание;
 
                         UsersPanelWindow users = new UsersPanelWindow();
                         
@@ -109,6 +120,7 @@ namespace KPTaxiApplication.Views
                         users.avt.Style = (Style)Application.Current.Resources["menuButtonDis"];
                         users.exit.Style = (Style)Application.Current.Resources["menuButtonDis"];
                         users.separator.Background = new SolidColorBrush(Color.FromArgb(255, 0x87, 0x87, 0x87));
+                        
 
 
 
@@ -130,5 +142,16 @@ namespace KPTaxiApplication.Views
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Window mainWindow = Window.GetWindow(this);
+            mainWindow.Close();
+        }
+
+
+      
+        
+        
     }
 }

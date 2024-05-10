@@ -22,7 +22,7 @@ namespace KPTaxiApplication
         public string Место_отправления { get; set; }
         public string Время_начала_заказа { get; set; }
         public string Время_окончания_заказа { get; set; }
-        public Nullable<int> Время_заказа { get; set; }
+        public string Время_заказа { get; set; }
         public Nullable<System.DateTime> Дата { get; set; }
         public Nullable<double> Путь_в_км { get; set; }
         public string Статус_заказа { get; set; }
@@ -30,7 +30,7 @@ namespace KPTaxiApplication
         public Nullable<bool> Багаж { get; set; }
         public string Выбор_оплаты { get; set; }
         public Nullable<bool> Ожидание { get; set; }
-        public Nullable<int> Оценка_за_обслуживание { get; set; }
+        public int Оценка_за_обслуживание { get; set; }
     
         public virtual Автомобили Автомобили { get; set; }
         public virtual Клиенты Клиенты { get; set; }

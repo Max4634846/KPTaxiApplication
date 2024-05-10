@@ -44,7 +44,7 @@
           <Property Name="Место отправления" Type="nvarchar" MaxLength="50" />
           <Property Name="Время начала заказа" Type="nvarchar" MaxLength="8" />
           <Property Name="Время окончания заказа" Type="nvarchar" MaxLength="8" />
-          <Property Name="Время заказа" Type="int" />
+          <Property Name="Время заказа" Type="nvarchar" MaxLength="50" />
           <Property Name="Дата" Type="date" />
           <Property Name="Путь в км" Type="float" />
           <Property Name="Статус заказа" Type="nvarchar" MaxLength="50" />
@@ -52,7 +52,7 @@
           <Property Name="Багаж" Type="bit" />
           <Property Name="Выбор оплаты" Type="nvarchar" MaxLength="50" />
           <Property Name="Ожидание" Type="bit" />
-          <Property Name="Оценка за обслуживание" Type="int" />
+          <Property Name="Оценка за обслуживание" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Клиенты">
           <Key>
@@ -292,7 +292,7 @@
           <Property Name="Место_отправления" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Время_начала_заказа" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
           <Property Name="Время_окончания_заказа" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
-          <Property Name="Время_заказа" Type="Int32" />
+          <Property Name="Время_заказа" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Дата" Type="DateTime" Precision="0" />
           <Property Name="Путь_в_км" Type="Double" />
           <Property Name="Статус_заказа" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -300,7 +300,7 @@
           <Property Name="Багаж" Type="Boolean" />
           <Property Name="Выбор_оплаты" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Ожидание" Type="Boolean" />
-          <Property Name="Оценка_за_обслуживание" Type="Int32" />
+          <Property Name="Оценка_за_обслуживание" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Автомобили" Relationship="Self.FK_Заказы_Автомобили" FromRole="Заказы" ToRole="Автомобили" />
           <NavigationProperty Name="Клиенты" Relationship="Self.FK_Заказы_Клиенты" FromRole="Заказы" ToRole="Клиенты" />
           <NavigationProperty Name="Тарифы" Relationship="Self.FK_Заказы_Тарифы" FromRole="Заказы" ToRole="Тарифы" />

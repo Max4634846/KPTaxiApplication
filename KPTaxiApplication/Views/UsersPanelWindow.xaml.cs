@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace KPTaxiApplication.Views
 {
@@ -25,8 +26,25 @@ namespace KPTaxiApplication.Views
         public UsersPanelWindow()
         {
             InitializeComponent();
+            Loaded += AdminWin_Loaded;
             txtUserName.Text = $"{CurrentUser.FirstName} {CurrentUser.SurName}";
 
+            
+
+        }
+        private void AdminWin_Loaded(object sender, RoutedEventArgs e)
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+            txtTime.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            txtTime.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void Client_Click(object sender, RoutedEventArgs e)
@@ -41,12 +59,22 @@ namespace KPTaxiApplication.Views
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new OrdersPage());
         }
 
         private void Sot_Click(object sender, RoutedEventArgs e)
         {
+            if (CurrentUser.Status == 2)
+            {
 
+                MessageBox.Show("Сотрудники меню не доступно для диспетчера.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+                
+            }
+            else
+            {
+                MainFrame.Navigate(new SotPage());
+            }
         }
 
         private void Tarig_Click(object sender, RoutedEventArgs e)
@@ -91,8 +119,8 @@ namespace KPTaxiApplication.Views
                 if (this.IsMaximized)
                 {
                     this.WindowState = WindowState.Normal;
-                    this.Width = 1080;
-                    this.Height = 720;
+                    this.Width = 1180;
+                    this.Height = 820;
 
                     IsMaximized = false;
                 }

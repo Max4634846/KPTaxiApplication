@@ -6,16 +6,17 @@
       xmlns:local="clr-namespace:KPTaxiApplication.Views" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       Height="800" Width="800"
-      Title="LoginPage">
+      Title="LoginPage"
+      >
 
-    <materialDesign:Card UniformCornerRadius="35" Margin="150, 100" Opacity="0.95">
-    <materialDesign:Card.Background>
+    <Border CornerRadius="35" Margin="150, 100" Opacity="0.98" >
+     <Border.Background>
         <SolidColorBrush Color="#fcfcfc" />
-    </materialDesign:Card.Background>
+    </Border.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="230" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="40" />
@@ -23,16 +24,18 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0"  Source="/image/txIcon.jpeg"  Width="150" Stretch="UniformToFill"/>
-        <TextBlock Grid.Row="1" Text="Авторизация" FontSize="28" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="1" Text="Ваше личное такси" FontSize="16" HorizontalAlignment="Center" Margin="0,45,0,0"/>
-        <WrapPanel  Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image Source="/image/UserIcon.png" Width="35" Margin="5"></Image>
+            <StackPanel Grid.Row="1">
+                <Image Grid.Row="1"  Source="/images/txIcon.jpeg"  Width="150" Stretch="UniformToFill"/>
+                <TextBlock Grid.Row="1" Text="Авторизация" FontSize="28" HorizontalAlignment="Center"/>
+                <TextBlock Grid.Row="1" Text="Ваше личное такси" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            </StackPanel>
+            <WrapPanel  Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="/images/UserIcon.png" Width="35" Margin="5"></Image>
             <TextBox Width="350" x:Name="txtLogin" Style="{StaticResource TextBoxStyle}">
             </TextBox>
         </WrapPanel>
         <WrapPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image Source="/image/PasswordIcon.png" Width="32" Margin="5"></Image>
+            <Image Source="/images/PasswordIcon.png" Width="32" Margin="5"></Image>
             <PasswordBox x:Name="passwordBox" Width="350" Style="{StaticResource PasswordBoxStyle}" 
                 PasswordChanged="PasswordBox_PasswordChanged" />
 
@@ -44,8 +47,12 @@
                 <SolidColorBrush Color="Transparent"/>
             </Button.Background>
         </Button>
+            <Button Click="Close_Click" Width="29" Height="29" HorizontalAlignment="Right" Margin="0 10 15 0" BorderThickness="0" Style="{StaticResource RoundButtonStyle}" Background="White">
+                <Image Source="/Images/exitIcon.png"/>
+                 
+            </Button>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
     </Grid>
 
-    </materialDesign:Card>
+    </Border>
 </Page>

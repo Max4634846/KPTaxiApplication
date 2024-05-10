@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows; 
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -16,20 +16,23 @@ using System.Windows.Shapes;
 namespace KPTaxiApplication.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SotPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SotPage : Page
     {
-        public MainWindow()
+        public SotPage()
         {
             InitializeComponent();
-            MainFrame.Content = new LoginPage();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
-            UsersPanelWindow adminPanelWindow = new UsersPanelWindow();
-            adminPanelWindow.Show();
+
+        }
+
+        private void TextBox_Changed(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

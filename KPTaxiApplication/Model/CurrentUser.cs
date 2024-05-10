@@ -14,13 +14,16 @@ namespace KPTaxiApplication.Model
         public static string Password { get; set; }
         public static string FirstName { get; set; }
         public static string SurName { get; set; }
+        public static string Patronies { get; set; }
         public static string Email { get; set; }
         public static string PhoneNumber { get; set; }
+        public static string Pasport { get; set; }
+        public static string Opicanie { get; set; }
         public static int Status { get; set; }
 
         public static string GetFullName()
         {
-            return $"{FirstName} {SurName} ";
+            return $"{FirstName} {SurName} {Patronies} {Email} {PhoneNumber} {Opicanie}";
         }
     }
 }

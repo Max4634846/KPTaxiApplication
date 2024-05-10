@@ -24,8 +24,15 @@ namespace KPTaxiApplication.Views
         public PersonalAccount()
         {
             InitializeComponent();
-            txtNameUser.Text = $"Имя: {CurrentUser.FirstName}";
-            
+            txtStatus.Text = $"Стаутс: {CurrentUser.Status}";
+            txtNameUser.Text = $"Ф.И.О: {CurrentUser.FirstName} {CurrentUser.SurName} {CurrentUser.Patronies}";
+            txtNumberPhone.Text = $"Номер телефона: {CurrentUser.PhoneNumber}";
+            txtMail.Text = $"Email: {CurrentUser.Email}";
+            txtMail.Text = $"Паспортные данные: {CurrentUser.Pasport}";
+            txtOpicanie.Text = $"Описание области: {CurrentUser.Opicanie}";
+
+
+
         }
     }
 }

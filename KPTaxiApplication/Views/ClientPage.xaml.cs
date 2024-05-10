@@ -86,6 +86,8 @@ namespace KPTaxiApplication.Views
                 AddEditPageClient view = new AddEditPageClient(null);
                 view.Closed += EditWindow_Closed;
                 view.AddClient.Visibility = Visibility.Collapsed;
+                view.id.Visibility = Visibility.Collapsed;
+                view.idText.Visibility = Visibility.Collapsed;
                 view.ShowDialog();
  
         }
