@@ -45,7 +45,7 @@ namespace KPTaxiApplication.Views
                         SurName = r.Фамилия,
                         Otzestvo = r.Отчество,
                         NumberPhone = r. Номер_телефона,
-                        Raiting = r.Рейтинг
+
 
                     }).ToList());
 
@@ -151,7 +151,6 @@ namespace KPTaxiApplication.Views
                 HeaderTwo.HeaderStyle = (Style)Application.Current.Resources["dataGridHeaderDis"];
                 HeaderThree.HeaderStyle = (Style)Application.Current.Resources["dataGridHeaderDis"];
                 HeaderFour.HeaderStyle = (Style)Application.Current.Resources["dataGridHeaderDis"];
-                HeaderFive.HeaderStyle = (Style)Application.Current.Resources["dataGridHeaderDis"];
                 HeaderSix.Visibility = Visibility.Collapsed;
                 Add.Style = (Style)Application.Current.Resources["addButtonDis"];
 

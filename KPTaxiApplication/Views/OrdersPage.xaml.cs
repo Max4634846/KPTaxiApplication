@@ -33,7 +33,7 @@ namespace KPTaxiApplication.Views
             InitializeComponent();
             StyleGrid();
             UpdateDataGrid();
-            Loaded += Page_Loaded;
+ 
 
         }
         private void UpdateDataGrid()
@@ -80,15 +80,21 @@ namespace KPTaxiApplication.Views
                 // Выполнение скрипта JavaScript для получения значения поля на веб-странице
                 string script = "document.querySelector('#sb_ifc50 input').value\r\n";
                 string script1 = "document.querySelector('#sb_ifc51 input').value\r\n";
-                string script2 = "document.querySelector('#QA0Szd .Fk3sm.fontHeadlineSmall.delay-heavy ').textContent\r\n";
-                string script3 = "document.querySelector('#QA0Szd .ivN21e.tUEI8e.fontBodyMedium').textContent\r\n";
-                string script4 = "document.querySelector('#QA0Szd .delay-medium').textContent\r\n";
+                string script2 = "document.querySelector('#QA0Szd .Fk3sm.fontHeadlineSmall.delay-medium  ').textContent\r\n";
+                string script3 = "document.querySelector('#QA0Szd .ivN21e.tUEI8e.fontBodyMedium ').textContent\r\n";
+                string script4 = "document.querySelector('#QA0Szd .Fk3sm.fontHeadlineSmall.delay-light').textContent\r\n";
+
+
+
 
                 var result = await webView.CoreWebView2.ExecuteScriptAsync(script);
                 var result1 = await webView.CoreWebView2.ExecuteScriptAsync(script1);
                 var result2 = await webView.CoreWebView2.ExecuteScriptAsync(script2);
                 var result3 = await webView.CoreWebView2.ExecuteScriptAsync(script3);
                 var result4 = await webView.CoreWebView2.ExecuteScriptAsync(script4);
+
+
+
 
                 // Отображение результата в TextBox
                 editPageOrders.Otkuda.Text = result;
@@ -104,8 +110,12 @@ namespace KPTaxiApplication.Views
                 {
 
                     editPageOrders.PutiKm.Text = value.ToString(); // Отображение числового значения
-                    
+
                 }
+
+                TimeSpan currentTime = DateTime.Now.TimeOfDay;
+                editPageOrders.TimeStartSakasa.Text = currentTime.ToString("hh\\:mm\\:ss");
+                editPageOrders.Closed += EditWindow_Closed;
                 editPageOrders.Show();
             }
             catch (Exception ex)
@@ -197,10 +207,7 @@ namespace KPTaxiApplication.Views
             }
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
 
-        }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
@@ -232,5 +239,6 @@ namespace KPTaxiApplication.Views
                 }
             }
         }
+      
     }
 }

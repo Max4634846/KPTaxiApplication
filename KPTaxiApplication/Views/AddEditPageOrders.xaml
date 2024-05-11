@@ -43,7 +43,7 @@
             </WrapPanel>
 
             <TextBlock Text="Номер автомобиля" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <ComboBox x:Name="NumAvto"  Grid.Row="0" Grid.Column="1"  Width="150" Height="35" />
+            <ComboBox x:Name="NumAvto"  Grid.Row="0" Grid.Column="1"  Width="150" Height="35" SelectionChanged="NumAvto_SelectedIndexChanged"/>
 
 
             <TextBlock Grid.Row="1"  Text="Номер клиента" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -74,7 +74,7 @@
             <xctk:MaskedTextBox x:Name="PutiKm" Grid.Row="1" Grid.Column="3" Style="{StaticResource TextBoxStyle}" Width="150"/>
 
             <TextBlock Grid.Row="2" Grid.Column="2" Text="Статус заказа" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <ComboBox x:Name="StatusSakasa" Grid.Row="2" Grid.Column="3"  Width="150" Height="35">
+            <ComboBox x:Name="StatusSakasa" Grid.Row="2" Grid.Column="3"  Width="150" Height="35" SelectionChanged="StatusSakasa_SelectionChanged">
                 <ComboBoxItem Content="Активный" />
                 <ComboBoxItem Content="Завершен" />
             </ComboBox>

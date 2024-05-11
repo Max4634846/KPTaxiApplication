@@ -5,28 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KPTaxiApplication.Views"
         mc:Ignorable="d"
-        Title="CardPageSotrudnik" Height="450" Width="850"
+        Title="CardPageSotrudnik" Height="600" Width="850"
         WindowStyle="None"
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True">
 
-    <Border Margin="30 0 20 30" BorderBrush="#878787" BorderThickness=" 0 3 0  3" Background="White" CornerRadius="30 0 30 0" MouseDown="Border_MouseDown">
+    <Border Margin="30 0 20 30" BorderBrush="#878787" BorderThickness=" 0 3 0  3" Background="White" CornerRadius="30 0 30 0" MouseDown="Border_MouseDown" x:Name="Border">
         <Grid Margin="30 20 20 30">
-            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#969696" CornerRadius="30" Width="730" Height="344">
-                <StackPanel Margin="20">
-                    <TextBlock Text="Карточка сотрудника" Style="{StaticResource GlowingTextBlock}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28" Foreground="White">
+            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#969696" CornerRadius="30" Width="730" Height="494" x:Name="BorderCard">
+                <WrapPanel>
+                    
+                    <StackPanel Margin="20" HorizontalAlignment="Right" >
+                        <TextBlock Text="Карточка сотрудника" Style="{StaticResource GlowingTextBlock}" FontSize="28" Foreground="White" TextWrapping="Wrap" Margin="200 0">
 
-                    </TextBlock>
-                    <TextBlock x:Name="txtStatus" FontSize="18" Foreground="AliceBlue" FontWeight="Bold"/>
-                    <TextBlock x:Name="txtNameUser" FontSize="18" Foreground="AliceBlue" FontWeight="Bold"/>
-                    <TextBlock x:Name="txtNumberPhone" FontSize="18" Foreground="AliceBlue" FontWeight="Bold"/>
-                    <TextBlock x:Name="txtMail" FontSize="18" Foreground="AliceBlue" FontWeight="Bold"/>
-                    <TextBlock x:Name="txtPasport" FontSize="18" Foreground="AliceBlue" FontWeight="Bold"/>
-                    <TextBlock x:Name="txtOpicanie" FontSize="18" Foreground="AliceBlue"  FontWeight="Bold" TextWrapping="Wrap"/>
-                </StackPanel>
+                        </TextBlock>
+                        <TextBlock x:Name="txtStatus" FontSize="18" Foreground="AliceBlue" FontWeight="Bold" TextWrapping="Wrap"/>
+                        <TextBlock x:Name="txtNameUser" FontSize="18" Foreground="AliceBlue" FontWeight="Bold" TextWrapping="Wrap"/>
+                        <TextBlock x:Name="txtNumberPhone" FontSize="18" Foreground="AliceBlue" FontWeight="Bold" TextWrapping="Wrap"/>
+                        <TextBlock x:Name="txtMail" FontSize="18" Foreground="AliceBlue" FontWeight="Bold" TextWrapping="Wrap"/>
+                        <TextBlock x:Name="txtPasport" FontSize="18" Foreground="AliceBlue" FontWeight="Bold" TextWrapping="Wrap"/>
+                        <TextBlock x:Name="txtOpicanie" FontSize="18" Foreground="AliceBlue"  FontWeight="Bold" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </WrapPanel>
+               
             </Border>
-
+            <Button x:Name="BtnCardSot" Content="->" Style="{StaticResource addButtonDis}"  Click="BtnCardSot_Click" Margin="0,428,52,52"/>
+            <Button Content="Help" Click="Button_Click" x:Name="HelpBtn" Style="{StaticResource addButtonDis}" Margin="0,428,552,52"/>
         </Grid>
     </Border>
 

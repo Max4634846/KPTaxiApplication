@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bc1384146a404a648be07524ffde0965" Name="Diagram1">
+      <Diagram DiagramId="017a1e1b377a4336918e48d53c4df242" Name="Diagram1">
         <EntityTypeShape EntityType="TaxApplicationModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TaxApplicationModel.Автомобили" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Автомобили" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TaxApplicationModel.Должность" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TaxApplicationModel.Заказы" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Заказы" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TaxApplicationModel.Клиенты" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TaxApplicationModel.Модель" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TaxApplicationModel.Сотрудники" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TaxApplicationModel.Тарифы" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Модель" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Сотрудники" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaxApplicationModel.Тарифы" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
         <AssociationConnector Association="TaxApplicationModel.FK_Автомобили_Модель" ManuallyRouted="false" />
         <AssociationConnector Association="TaxApplicationModel.FK_Автомобили_Сотрудники" ManuallyRouted="false" />
         <AssociationConnector Association="TaxApplicationModel.FK_Заказы_Автомобили" ManuallyRouted="false" />

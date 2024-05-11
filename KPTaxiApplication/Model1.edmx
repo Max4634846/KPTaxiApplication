@@ -40,11 +40,11 @@
           <Property Name="id_Автомобили" Type="int" />
           <Property Name="id_Клиенты" Type="int" />
           <Property Name="id_Тарифы" Type="int" />
-          <Property Name="Откуда" Type="nvarchar" MaxLength="50" />
-          <Property Name="Место отправления" Type="nvarchar" MaxLength="50" />
+          <Property Name="Откуда" Type="nvarchar(max)" />
+          <Property Name="Место отправления" Type="nvarchar(max)" />
           <Property Name="Время начала заказа" Type="nvarchar" MaxLength="8" />
           <Property Name="Время окончания заказа" Type="nvarchar" MaxLength="8" />
-          <Property Name="Время заказа" Type="nvarchar" MaxLength="50" />
+          <Property Name="Время заказа" Type="nvarchar(max)" />
           <Property Name="Дата" Type="date" />
           <Property Name="Путь в км" Type="float" />
           <Property Name="Статус заказа" Type="nvarchar" MaxLength="50" />
@@ -63,7 +63,6 @@
           <Property Name="Фамилия" Type="nvarchar" MaxLength="50" />
           <Property Name="Отчество" Type="nvarchar" MaxLength="50" />
           <Property Name="Номер телефона" Type="nvarchar" MaxLength="16" />
-          <Property Name="Рейтинг" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Модель">
           <Key>
@@ -288,11 +287,11 @@
           <Property Name="id_Автомобили" Type="Int32" />
           <Property Name="id_Клиенты" Type="Int32" />
           <Property Name="id_Тарифы" Type="Int32" />
-          <Property Name="Откуда" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Место_отправления" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Откуда" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Место_отправления" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Время_начала_заказа" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
           <Property Name="Время_окончания_заказа" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
-          <Property Name="Время_заказа" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Время_заказа" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Дата" Type="DateTime" Precision="0" />
           <Property Name="Путь_в_км" Type="Double" />
           <Property Name="Статус_заказа" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -314,7 +313,6 @@
           <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Номер_телефона" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Name="Рейтинг" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Заказы" Relationship="Self.FK_Заказы_Клиенты" FromRole="Клиенты" ToRole="Заказы" />
         </EntityType>
         <EntityType Name="Модель">
@@ -589,7 +587,6 @@
                 <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
                 <ScalarProperty Name="Отчество" ColumnName="Отчество" />
                 <ScalarProperty Name="Номер_телефона" ColumnName="Номер телефона" />
-                <ScalarProperty Name="Рейтинг" ColumnName="Рейтинг" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -22,7 +22,7 @@ namespace KPTaxiApplication
             : base("name=TaxApplicationEntities")
         {
         }
-        private static TaxApplicationEntities GetContext()
+        public static TaxApplicationEntities GetContext()
         { 
             if (_context == null)
                 _context = new TaxApplicationEntities();

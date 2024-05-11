@@ -14,7 +14,7 @@ namespace KPTaxiApplication.Model
         public string SurName { get; set; }
         public string Otzestvo { get; set; }
         public string NumberPhone { get; set; }
-        public string Raiting { get; set; }
+
 
     }
 }

@@ -47,10 +47,7 @@
                 <TextBlock Grid.Row="4"  Text="Номер телефона" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <xctk:MaskedTextBox Mask="+7(000)000-00-00" x:Name="numberTextBox" Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Width="150" />
 
-                <TextBlock Grid.Row="5" Text="Рейтинг" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <ComboBox x:Name="ratingTextBox" Grid.Row="5" Grid.Column="1" Height="35"  Width="150" >
-                    <ComboBoxItem Content="3.0" />
-                </ComboBox>
+
 
                 <Button x:Name="Back" Grid.Row="12" Grid.Column="1" Content="Назад" FontSize="10" Width="100" Height="20" Style="{StaticResource addButton}" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Close_Click" Margin="0,15,0,0"/>
                 <Button x:Name="AddClient"  Grid.Row="12" Grid.Column="0" Content="Изменить" FontSize="10" Width="100" Height="20" Style="{StaticResource addButton}" HorizontalAlignment="Center" VerticalAlignment="Top"  Click="AddBD_Click" Margin="0,15,0,0" />

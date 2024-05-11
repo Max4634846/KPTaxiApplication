@@ -25,7 +25,6 @@ namespace KPTaxiApplication
         public string Фамилия { get; set; }
         public string Отчество { get; set; }
         public string Номер_телефона { get; set; }
-        public string Рейтинг { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Заказы> Заказы { get; set; }

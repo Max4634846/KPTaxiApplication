@@ -41,7 +41,7 @@ namespace KPTaxiApplication.Views
                 surnameTextBox.Text = item.SurName;
                 patronymicTextBox.Text = item.Otzestvo;
                 numberTextBox.Text = item.NumberPhone;
-                ratingTextBox.Text = item.Raiting;
+
             }
 
 
@@ -62,7 +62,7 @@ namespace KPTaxiApplication.Views
                     item.Фамилия = surnameTextBox.Text;
                     item.Отчество = patronymicTextBox.Text;
                     item.Номер_телефона = numberTextBox.Text;
-                    item.Рейтинг = ratingTextBox.Text;
+
 
                     context.SaveChanges();
 
@@ -113,7 +113,7 @@ namespace KPTaxiApplication.Views
                         Фамилия = surnameTextBox.Text,
                         Отчество = patronymicTextBox.Text,
                         Номер_телефона = numberTextBox.Text,
-                        Рейтинг = ratingTextBox.Text,
+
                     };
 
                     context.Клиенты.Add(task);

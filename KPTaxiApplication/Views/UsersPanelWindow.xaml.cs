@@ -29,9 +29,11 @@ namespace KPTaxiApplication.Views
             Loaded += AdminWin_Loaded;
             txtUserName.Text = $"{CurrentUser.FirstName} {CurrentUser.SurName}";
 
-            
+
+
 
         }
+
         private void AdminWin_Loaded(object sender, RoutedEventArgs e)
         {
             DispatcherTimer timer = new DispatcherTimer();
@@ -127,14 +129,14 @@ namespace KPTaxiApplication.Views
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //if (e.ChangedButton == MouseButton.Left)
-            //{
-            //    this.DragMove();
-            ////////}
+                if (e.ChangedButton == MouseButton.Left)
+                {
+                    this.DragMove();
+                }
         }
 
-        private void Border_LeftMouseDown(object sender, MouseButtonEventArgs e)
-        {
+            private void Border_LeftMouseDown(object sender, MouseButtonEventArgs e)
+            {   
             if (e.ClickCount == 3)
             {
                 if (this.IsMaximized)
@@ -152,6 +154,23 @@ namespace KPTaxiApplication.Views
                     IsMaximized = true;
                 }
             }
+        }
+
+        private void Report_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.WindowState == WindowState.Maximized)
+            {
+                MainFrame.Navigate(new ReportView());
+                IsMaximized = false;
+            }
+            else 
+            {
+                MessageBox.Show("Нажмите три раза по полю расширения экрана чтобы открыть отчет .", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+                
+
+
         }
     }
 }

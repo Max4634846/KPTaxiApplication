@@ -21,6 +21,7 @@ namespace KPTaxiApplication.Model
         public string Email { get; set; }
         public string Pasport { get; set; }
         public string Address { get; set; }
-       
+        public string ImagePath { get; set; }
+
     }
 }

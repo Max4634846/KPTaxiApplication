@@ -18,6 +18,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
 using System.Security.Policy;
 using Application = System.Windows.Application;
+using static MaterialDesignThemes.Wpf.Theme;
 
 namespace KPTaxiApplication.Views
 {
@@ -47,33 +48,74 @@ namespace KPTaxiApplication.Views
             else
             {
                 idOrder.Text = item.id_Order.ToString();
-                NumAvto.SelectedItem = item.id_Avto;
+                NumAvto.SelectedValue = item.id_Avto.ToString();
                 NumClient.SelectedItem = item.id_Client;
-                NumTariff.SelectedItem = item.id_Taff;
+                NumTariff.SelectedValue = item.id_Taff;
                 Otkuda.Text = item.Otkuda;
                 Kuda.Text = item.Kuda;
                 TimeStartSakasa.Text = item.StartTime;
                 TimeFinishSakasa.Text = item.FinishTimne;
-                TimeSakasa.Text = item.EndTime.ToString();
+                TimeSakasa.Text = item.EndTime;
                 Data.SelectedDate = item.Date;
                 PutiKm.Text = item.PutKm.ToString();
-                StatusSakasa.SelectedItem = item.StatusOrder;
-                Bagaje.SelectedItem = item.Bagaje;
-                VuborOplati.SelectedItem = item.ViborOplate;
-                Ojidanie.SelectedItem = item.Expectation;
-                Ocenka.SelectedItem = item.Estimation;
+                StatusSakasa.Text = item.StatusOrder.ToString();
+                Bagaje.Text = item.Bagaje.ToString();
+                VuborOplati.Text = item.ViborOplate.ToString();
+                Ojidanie.Text = item.Expectation.ToString();
+                Ocenka.Text = item.Estimation.ToString();
+                NumAvto.SelectionChanged += NumAvto_SelectedIndexChanged;
+
+
+
             }
+
 
 
         }
 
+        private void ShowAvailableDrivers()
+        {
+            using (var context = new TaxApplicationEntities())
+            {
+                var availableDrivers = context.Сотрудники
+                    .Where(s => s.Автомобили.All(a => a.Заказы.All(z => z.Статус_заказа == "Завершен")) && s.Должность.id_Должность == 1)
+                    .Select(s => new { FullName = s.Имя + " " + s.Фамилия, PhoneNumber = s.Номер_телефона})
+                    .ToList();
+
+                if (availableDrivers.Count > 0)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach (var driver in availableDrivers)
+                    {
+                        sb.AppendLine($"Имя: {driver.FullName}, Номер телефона: {driver.PhoneNumber}");
+                    }
+                    MessageBox.Show($"Доступные водители:{Environment.NewLine}{sb.ToString()}", "Свободные водители", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("На данный момент свободных водителей нет.", "Свободные водители", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
+
         private void ItemSource()
         {
-            var avtoList = _context.Автомобили.Select(el => new AvtoItem { Id = el.id_Автомобили, Name = el.Сотрудники.Должность.Название_должности }).ToList();
+            //var avtoList = _context.Автомобили.Select(el => new AvtoItem { Id = el.id_Автомобили, Name = el.Сотрудники.Должность.Название_должности }).ToList();
+
+            //NumAvto.ItemsSource = avtoList;
+            //NumAvto.DisplayMemberPath = "Name"; 
+            //NumAvto.SelectedValuePath = "Id";
+
+
+            var avtoList = _context.Автомобили
+                .Where(avto => avto.Сотрудники.Должность.id_Должность == 1) // Фильтр по должности
+                .Select(el => new AvtoItem { Id = el.id_Автомобили, Name = el.Сотрудники.Имя })
+                .ToList();
 
             NumAvto.ItemsSource = avtoList;
-            NumAvto.DisplayMemberPath = "Name"; 
+            NumAvto.DisplayMemberPath = "Name";
             NumAvto.SelectedValuePath = "Id";
+
 
             var ListClient = _context.Клиенты.Select(el => el.id_Клиенты).ToList();
 
@@ -102,7 +144,7 @@ namespace KPTaxiApplication.Views
                 if (item != null)
                 {
                     item.id_Заказы = taskID;
-                    item.id_Автомобили = (int)NumAvto.SelectedValue;
+                    item.id_Автомобили = (int)((AvtoItem)NumAvto.SelectedItem).Id;
                     item.id_Клиенты = (int)NumClient.SelectedItem;
                     item.id_Тарифы = (int)NumTariff.SelectedValue;
                     item.Откуда = Otkuda.Text;
@@ -111,12 +153,15 @@ namespace KPTaxiApplication.Views
                     item.Время_окончания_заказа = TimeFinishSakasa.Text;
                     item.Время_заказа = TimeSakasa.Text;
                     item.Дата = Data.SelectedDate;
-                    item.Путь_в_км = Convert.ToInt32(PutiKm.Text);
+                    item.Путь_в_км = Convert.ToDouble(PutiKm.Text);
                     item.Статус_заказа = StatusSakasa.Text;
                     item.Багаж = Convert.ToBoolean(Bagaje.Text);
                     item.Выбор_оплаты = VuborOplati.Text;
                     item.Ожидание = Convert.ToBoolean(Ojidanie.Text);
                     item.Оценка_за_обслуживание = Convert.ToInt32(Ocenka.Text);
+
+
+
 
 
                     context.SaveChanges();
@@ -141,7 +186,6 @@ namespace KPTaxiApplication.Views
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-
             using (var context = new TaxApplicationEntities())
             {
                 if (currentItem == null)
@@ -186,5 +230,35 @@ namespace KPTaxiApplication.Views
 
                 }
             }
+
+        private void NumAvto_SelectedIndexChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int selectedCarId = Convert.ToInt32(NumAvto.SelectedValue);
+
+            // Подключение к базе данных и выполнение запроса, чтобы проверить статус выбранного автомобиля
+            using (var context = new TaxApplicationEntities())
+            {
+                var order = context.Заказы.FirstOrDefault(o => o.id_Автомобили == selectedCarId && o.Статус_заказа == "Активный");
+
+                if (order != null)
+                {
+                    MessageBox.Show("Данный водитель сейчас занят.");
+                }
+                else
+                {
+                    // Если водитель свободен, вызываем метод для вывода доступных водителей
+                    ShowAvailableDrivers();
+                }
+            }
+        }
+
+        private void StatusSakasa_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (StatusSakasa.Text != null && StatusSakasa.Text.ToString() == "Завершен")
+            {
+                TimeSpan currentTime = DateTime.Now.TimeOfDay;
+                TimeFinishSakasa.Text = currentTime.ToString("hh\\:mm\\:ss");
+            }
+        }
     }
 }

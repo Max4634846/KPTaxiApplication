@@ -83,7 +83,6 @@
                                 <DataGridTextColumn x:Name="HeaderTwo" Header="Фамилия" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding SurName}" Width="*"></DataGridTextColumn>
                                 <DataGridTextColumn x:Name="HeaderThree" Header="Отчество" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Otzestvo}" Width="*"></DataGridTextColumn>
                                 <DataGridTextColumn x:Name="HeaderFour" Header="Номер телефона" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding NumberPhone}" Width="*"></DataGridTextColumn>
-                                <DataGridTextColumn x:Name="HeaderFive" Header="Рейтинг" HeaderStyle="{StaticResource dataGridHeader}" Binding="{Binding Raiting}" Width="auto"></DataGridTextColumn>
                                 <DataGridTemplateColumn x:Name="HeaderSix" Width="100" HeaderStyle="{StaticResource dataGridHeader}">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
