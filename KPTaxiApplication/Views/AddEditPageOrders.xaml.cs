@@ -254,11 +254,12 @@ namespace KPTaxiApplication.Views
 
         private void StatusSakasa_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (StatusSakasa.Text != null && StatusSakasa.Text.ToString() == "Завершен")
+            if (StatusSakasa.SelectedItem != null && ((ComboBoxItem)StatusSakasa.SelectedItem).Content.ToString() == "Завершен")
             {
                 TimeSpan currentTime = DateTime.Now.TimeOfDay;
                 TimeFinishSakasa.Text = currentTime.ToString("hh\\:mm\\:ss");
             }
         }
+
     }
 }

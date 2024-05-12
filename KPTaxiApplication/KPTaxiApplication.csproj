@@ -138,8 +138,11 @@
     <Compile Include="Model\AvtoForCurrent.cs" />
     <Compile Include="Model\AvtoItem.cs" />
     <Compile Include="Model\DolForCurrent.cs" />
+    <Compile Include="Model\DriverOrderInfo.cs" />
+    <Compile Include="Model\DriverOrderInfoPeriod.cs" />
     <Compile Include="Model\ModelForCurrent.cs" />
     <Compile Include="Model\OrdersForCurrentUser.cs" />
+    <Compile Include="Model\OrdersInfo.cs" />
     <Compile Include="Model\SotForrCurrentUser.cs" />
     <Compile Include="Model\SotItem.cs" />
     <Compile Include="Model\TaffForCurrent.cs" />

@@ -30,7 +30,10 @@ namespace KPTaxiApplication.Views
             txtUserName.Text = $"{CurrentUser.FirstName} {CurrentUser.SurName}";
 
 
-
+            if(CurrentUser.Status == 3)
+            {
+                Report.Visibility = Visibility.Collapsed;
+            }
 
         }
 
@@ -129,10 +132,10 @@ namespace KPTaxiApplication.Views
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-                if (e.ChangedButton == MouseButton.Left)
-                {
-                    this.DragMove();
-                }
+                //if (e.ChangedButton == MouseButton.Left)
+                //{
+                //    this.DragMove();
+                //}
         }
 
             private void Border_LeftMouseDown(object sender, MouseButtonEventArgs e)

@@ -109,7 +109,7 @@
                                         <TextBlock Text="Автомобили" />
                                     </StackPanel>
                                 </Button>
-                            <Button Style="{StaticResource menuButtonDis}" Click="Report_Click">
+                            <Button Style="{StaticResource menuButtonDis}" Click="Report_Click" x:Name="Report">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Отчёт" />

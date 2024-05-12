@@ -52,7 +52,7 @@
                         <Border Background="#878787" Padding="0 0 0 5" CornerRadius="3" Margin="10">
                             <StackPanel>
                                 <TextBlock Text="Имя" FontSize="18" Margin="10 0 0 10" Foreground="White"/>
-                                <TextBox BorderThickness="0 0 0 3" FontSize="18" Margin="10 0" x:Name="nameDis"/>
+                                <TextBox BorderThickness="0 0 0 3" FontSize="18" Margin="10 0" x:Name="nameDis" />
                             </StackPanel>
                         </Border>
 
@@ -87,7 +87,7 @@
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1" Background="White" CornerRadius="17" Margin="30">
                     <StackPanel>
-                        <TextBlock Text="Данные о заказе" HorizontalAlignment="Center" Margin="0 20" FontSize="24" Foreground="#878787" FontWeight="Bold" />
+                        <TextBlock Text="Данные за день" HorizontalAlignment="Center" Margin="0 20" FontSize="24" Foreground="#878787" FontWeight="Bold" />
 
                         <Border Background="#878787" Padding="0 0 0 5" CornerRadius="3" Margin="10">
 
@@ -105,6 +105,23 @@
                                 <TextBlock Text="Дата заказа" FontSize="18" Margin="10 0 0 10" Foreground="White"/>
                                 <DatePicker  Foreground="Gray"  BorderThickness="0 0 0 3" FontSize="18" Margin="10 0" x:Name="datePicker" >
                                 </DatePicker>
+                            </StackPanel>
+                        </Border>
+
+                        <Border CornerRadius="35" Margin="20" Background="#878787" Height="300">
+                            <StackPanel>
+                                <TextBlock Text="Данные за период" HorizontalAlignment="Center" Margin="0 20" FontSize="24" Foreground="White" FontWeight="Bold" />
+                                <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <TextBlock Text="От" VerticalAlignment="Center" FontSize="16" Padding="5 0"  Foreground="White" FontWeight="Bold" />
+                                    <DatePicker  Foreground="Gray"  BorderThickness="0 0 0 3" FontSize="18" x:Name="datePickerOne" Width="300"/>
+                                </WrapPanel>
+                                <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 30">
+                                    <TextBlock Text="До" VerticalAlignment="Center" FontSize="16" Padding="5 0"  Foreground="White" FontWeight="Bold" />
+                                    <DatePicker  Foreground="Gray"  BorderThickness="0 0 0 3" FontSize="18" x:Name="datePickerTwo" Width="300"/>
+                                </WrapPanel>
+                                <Button  Style="{StaticResource addButtonReport}" Height="60" Width="60"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 -10" Click="GenerateReportPeriod_Click" >
+                                    <Icon:PackIconMaterial Kind="Wordpress" Height="30" Width="30"/>
+                                </Button>
                             </StackPanel>
                         </Border>
 
@@ -129,43 +146,43 @@
                     </StackPanel>
                 </Border>
                 <WrapPanel Grid.Row="2">
-                    <Button  Style="{StaticResource addButtonReport}" Height="180" Width="180" Margin="10" HorizontalAlignment="Left" Click="GenerateReport_Click">
+                    <Button  Style="{StaticResource addButtonReport}" Height="180" Width="180" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Click="GenerateReport_Click">
                         <WrapPanel>
-                            <StackPanel>
-                                <Icon:PackIconMaterial Kind="FileWordOutline" Height="80" Width="80"/>
-                                <TextBlock Text="Word" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="White" Style="{StaticResource GlowingTextBlock}" Margin="10" />
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Icon:PackIconMaterial Kind="FileWordOutline" Height="80" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Отчёт за день" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="White" Style="{StaticResource GlowingTextBlock}" Margin="0 10" />
                             </StackPanel>
                         </WrapPanel>
                     </Button>
-                    <Button  Style="{StaticResource addButtonReport}" Height="180" Width="180" Margin="10" HorizontalAlignment="Left" Click="BtnComboBox_Clikc">
+                    <Button  Style="{StaticResource addButtonReport}" Height="180" Width="180" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnComboBox_Clikc">
                         <WrapPanel>
                             <StackPanel>
-                                <Icon:PackIconMaterial Kind="Openid" Height="80" Width="80"/>
-                                <TextBlock Text="Открыть" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="White" Style="{StaticResource GlowingTextBlock}" Margin="10" />
+                                <Icon:PackIconMaterial Kind="FolderOpenOutline" Height="80" Width="80"/>
+                                <TextBlock Text="Открыть" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="White" Style="{StaticResource GlowingTextBlock}" Margin="0 10"/>
                             </StackPanel>
                         </WrapPanel>
                     </Button>
 
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="1">
-                    <Button  Style="{StaticResource addButtonReport}" Height="180" Width="180" Margin="10" HorizontalAlignment="Left" Click="CreateButton_Click">
+                    <Button  Style="{StaticResource addButtonReport}" Height="180" Width="180" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Click="GenerateReportOrders_Click">
                         <WrapPanel>
                             <StackPanel>
-                                <Icon:PackIconMaterial Kind="FileWordOutline" Height="80" Width="80"/>
-                                <TextBlock Text="Word" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="White" Style="{StaticResource GlowingTextBlock}" Margin="10" />
+                                <Icon:PackIconMaterial Kind="MicrosoftWord" Height="80" Width="80"/>
+                                <TextBlock Text="Отчёт" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="White" Style="{StaticResource GlowingTextBlock}" Margin="0 10" />
                             </StackPanel>
                         </WrapPanel>
                     </Button>
-                    <Button  Style="{StaticResource addButtonReport}" Height="180" Width="180" Margin="10" HorizontalAlignment="Left" Click="DeleteReport_Click">
+                    <Button  Style="{StaticResource addButtonReport}" Height="180" Width="180" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Click="DeleteReport_Click">
                         <WrapPanel>
                             <StackPanel>
-                                <Icon:PackIconMaterial Kind="Delete" Height="80" Width="80"/>
-                                <TextBlock Text="Удалить" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="White" Style="{StaticResource GlowingTextBlock}" Margin="10" />
+                                <Icon:PackIconMaterial Kind="DeleteSweepOutline" Height="80" Width="80"/>
+                                <TextBlock Text="Удалить" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="White" Style="{StaticResource GlowingTextBlock}" Margin="0 10" />
                             </StackPanel>
                         </WrapPanel>
                     </Button>
                 </WrapPanel>
-                
+
 
             </Grid>
         </Grid>
